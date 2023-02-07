@@ -1,0 +1,58 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Owner {
+  id: Int!
+  name: String!
+  city: String!
+  phone: String!
+  pets: [Pet!]
+}
+
+type Pet {
+  id: Int!
+  name: String!
+  breed: String!
+  fullYear: Int!
+  price: Int!
+  type: String
+  ownerId: Int!
+  owner: Owner!
+}
+
+type Query {
+  getPet(id: Int!): Pet!
+  pets: [Pet!]!
+  owners: [Owner!]!
+  owner(id: Int!): Owner!
+}
+
+type Mutation {
+  createPet(createPetInput: CreatePetInput!): Pet!
+  createOwner(createOwnerInput: CreateOwnerInput!): Owner!
+  updateOwner(updateOwnerInput: UpdateOwnerInput!): Owner!
+  removeOwner(id: Int!): Owner!
+}
+
+input CreatePetInput {
+  name: String!
+  breed: String!
+  fullYear: Int!
+  price: Int!
+  type: String
+  ownerId: Int!
+}
+
+input CreateOwnerInput {
+  name: String!
+  city: String!
+  phone: String!
+}
+
+input UpdateOwnerInput {
+  name: String
+  city: String
+  phone: String
+  id: Int!
+}
